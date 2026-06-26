@@ -92,28 +92,19 @@ export const profile: Profile = {
         "Plataforma de Crm Inmobiliario",
       longDescription:
         "Desarrollé una tienda online completa con autenticación, gestión de productos, carrito de compras e integración de pagos. El panel admin permite control total del inventario y pedidos.",
-      tags: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
+      tags: ["Next.js", "TypeScript", "Stripe"],
       liveUrl: "https://bonhome.co",
       githubUrl: "https://github.com/thadallender/bonhome",
       featured: true,
     },
     {
       id: "2",
-      title: "App de Gestión de Tareas",
+      title: "Proximamente",
       description:
-        "Aplicación colaborativa para equipos con tableros Kanban y notificaciones en tiempo real.",
-      tags: ["React", "Firebase", "Tailwind CSS"],
+        "...",
+      tags: ["..."],
       githubUrl: "https://github.com/tu-usuario/tareas",
       featured: true,
-    },
-    {
-      id: "3",
-      title: "Dashboard Analytics",
-      description:
-        "Panel de métricas con gráficos interactivos y exportación de informes.",
-      tags: ["Vue.js", "Chart.js", "Node.js"],
-      liveUrl: "https://ejemplo-dashboard.com",
-      featured: false,
     },
   ],
   experience: [
