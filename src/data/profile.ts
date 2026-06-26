@@ -81,7 +81,7 @@ export const profile: Profile = {
     },
     {
       category: "Herramientas",
-      items: ["Git", "Docker", "Figma", "VS Code", "Linux"],
+      items: ["Git", "Vercel", "Figma", "VS Code", "Cursor"],
     },
   ],
   projects: [
@@ -93,6 +93,7 @@ export const profile: Profile = {
       longDescription:
         "Desarrollé una tienda online completa con autenticación, gestión de productos, carrito de compras e integración de pagos. El panel admin permite control total del inventario y pedidos.",
       tags: ["Next.js", "TypeScript", "Stripe"],
+      image: "/projects/bonhome.png",
       liveUrl: "https://bonhome.co",
       githubUrl: "https://github.com/thadallender/bonhome",
       featured: true,
@@ -110,12 +111,12 @@ export const profile: Profile = {
   experience: [
     {
       id: "1",
-      role: "Desarrollador Full Stack",
-      company: "Empresa Tech S.L.",
-      period: "2023 — Presente",
-      description: "Desarrollo de aplicaciones web y mantenimiento de APIs.",
+      role: "Desarrollador Web",
+      company: "Empresa Tech",
+      period: "2025 — 2026",
+      description: "Desarrollo de aplicaciones web",
       highlights: [
-        "Lideré la migración del frontend a Next.js, mejorando el rendimiento un 40%",
+        "Lider de procucto de bonhome.co",
         "Implementé CI/CD con GitHub Actions",
         "Colaboré con diseño UX para mejorar la experiencia de usuario",
       ],
@@ -124,7 +125,7 @@ export const profile: Profile = {
       id: "2",
       role: "Desarrollador Junior",
       company: "Startup Innovadora",
-      period: "2021 — 2023",
+      period: "2025 — 2026",
       description: "Desarrollo frontend y soporte backend.",
       highlights: [
         "Construí componentes reutilizables en React",
@@ -134,10 +135,10 @@ export const profile: Profile = {
   ],
   education: [
     {
-      id: "1",
+      id: "3",
       degree: "Grado en Ingeniería Informática",
       institution: "Universidad de Ejemplo",
-      period: "2017 — 2021",
+      period: "2025 — 2026",
       description: "Especialización en desarrollo de software y bases de datos.",
     },
   ],

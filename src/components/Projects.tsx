@@ -27,12 +27,21 @@ export function Projects() {
               key={project.id}
               className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-accent/30 hover:bg-card-hover"
             >
-              <div className="flex h-48 items-center justify-center bg-gradient-to-br from-accent/10 to-purple-500/10">
-                <Folder
-                  size={48}
-                  className="text-accent-light/50 transition-transform group-hover:scale-110"
+              {project.image ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="h-48 w-full object-cover transition-transform group-hover:scale-105"
                 />
-              </div>
+              ) : (
+                <div className="flex h-48 items-center justify-center bg-gradient-to-br from-accent/10 to-purple-500/10">
+                  <Folder
+                    size={48}
+                    className="text-accent-light/50 transition-transform group-hover:scale-110"
+                  />
+                </div>
+              )}
 
               <div className="p-6">
                 <div className="mb-3 flex items-start justify-between gap-4">
