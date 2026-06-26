@@ -54,12 +54,12 @@ export type Profile = {
 };
 
 export const profile: Profile = {
-  name: "Tu Nombre",
-  title: "Desarrollador Full Stack",
+  name: "César",
+  title: "Desarrollador web",
   tagline: "Creo experiencias digitales que combinan diseño, código y propósito.",
-  email: "tu.email@ejemplo.com",
-  phone: "+34 600 000 000",
-  location: "Madrid, España",
+  email: "sismelyt083@gmail.com",
+  phone: "+57 302 704 3665",
+  location: "Colombia, Bogotá",
   bio: "Apasionado por la tecnología y el diseño. Me especializo en construir aplicaciones web modernas, escalables y centradas en el usuario.",
   about: [
     "Soy desarrollador con experiencia en el ecosistema JavaScript/TypeScript. Me gusta transformar ideas complejas en productos digitales claros y funcionales.",
@@ -67,7 +67,7 @@ export const profile: Profile = {
     "Cuando no estoy programando, disfruto leyendo, contribuyendo a proyectos open source o explorando nuevas herramientas del sector tech.",
   ],
   social: {
-    github: "https://github.com/tu-usuario",
+    github: "https://github.com/Aqua-coder-CO",
     linkedin: "https://linkedin.com/in/tu-usuario",
   },
   skills: [
@@ -87,14 +87,14 @@ export const profile: Profile = {
   projects: [
     {
       id: "1",
-      title: "E-commerce Moderno",
+      title: "Bonhome",
       description:
-        "Plataforma de comercio electrónico con carrito, pagos y panel de administración.",
+        "Plataforma de Crm Inmobiliario",
       longDescription:
         "Desarrollé una tienda online completa con autenticación, gestión de productos, carrito de compras e integración de pagos. El panel admin permite control total del inventario y pedidos.",
       tags: ["Next.js", "TypeScript", "Stripe", "PostgreSQL"],
-      liveUrl: "https://ejemplo.com",
-      githubUrl: "https://github.com/tu-usuario/proyecto",
+      liveUrl: "https://bonhome.co",
+      githubUrl: "https://github.com/thadallender/bonhome",
       featured: true,
     },
     {
