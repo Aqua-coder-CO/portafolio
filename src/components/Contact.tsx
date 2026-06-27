@@ -1,10 +1,63 @@
 "use client";
 
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { FormEvent, useState } from "react";
+import { Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
 import { profile } from "@/data/profile";
 import { SectionHeader } from "@/components/SectionHeader";
 
 export function Contact() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [sent, setSent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setError("");
+    setSent(false);
+
+    const trimmedName = name.trim();
+    const trimmedEmail = email.trim();
+    const trimmedMessage = message.trim();
+
+    if (!trimmedName || !trimmedEmail || !trimmedMessage) {
+      setError("Por favor completa todos los campos.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: trimmedName,
+          email: trimmedEmail,
+          message: trimmedMessage,
+        }),
+      });
+
+      const data = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        setError(data.error ?? "No se pudo enviar el mensaje.");
+        return;
+      }
+
+      setSent(true);
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch {
+      setError("Error de conexión. Comprueba tu internet e inténtalo de nuevo.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <section id="contacto" className="section section-alt px-6">
       <div className="mx-auto max-w-4xl">
@@ -55,19 +108,22 @@ export function Contact() {
             </div>
           </div>
 
-          <form
-            className="card p-6"
-            onSubmit={(e) => e.preventDefault()}
-          >
+          <form className="card p-6" onSubmit={handleSubmit} noValidate>
             <div className="mb-4">
               <label htmlFor="name" className="mb-2 block text-sm text-muted">
                 Nombre
               </label>
               <input
                 id="name"
+                name="name"
                 type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 placeholder="Tu nombre"
                 className="input-field"
+                required
+                autoComplete="name"
+                disabled={isSubmitting}
               />
             </div>
             <div className="mb-4">
@@ -76,9 +132,15 @@ export function Contact() {
               </label>
               <input
                 id="email"
+                name="email"
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="tu@email.com"
                 className="input-field"
+                required
+                autoComplete="email"
+                disabled={isSubmitting}
               />
             </div>
             <div className="mb-6">
@@ -90,14 +152,45 @@ export function Contact() {
               </label>
               <textarea
                 id="message"
+                name="message"
                 rows={4}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 placeholder="Cuéntame sobre tu proyecto..."
                 className="input-field resize-none"
+                required
+                disabled={isSubmitting}
               />
             </div>
-            <button type="submit" className="btn-primary w-full justify-center">
-              <Send size={16} />
-              Enviar mensaje
+
+            {error && (
+              <p className="mb-4 text-sm text-red-400" role="alert">
+                {error}
+              </p>
+            )}
+
+            {sent && (
+              <p className="mb-4 text-sm text-teal-400" role="status">
+                ¡Mensaje enviado! Lo recibiré en mi correo y te responderé pronto.
+              </p>
+            )}
+
+            <button
+              type="submit"
+              className="btn-primary w-full justify-center disabled:cursor-not-allowed disabled:opacity-60"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <>
+                  <Loader2 size={16} className="animate-spin" />
+                  Enviando...
+                </>
+              ) : (
+                <>
+                  <Send size={16} />
+                  Enviar mensaje
+                </>
+              )}
             </button>
             <p className="mt-3 text-center text-xs text-muted">
               O escríbeme directamente a{" "}
