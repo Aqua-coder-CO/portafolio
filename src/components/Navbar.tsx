@@ -10,7 +10,6 @@ const navLinks = [
   { href: "#proyectos", label: "Proyectos" },
   { href: "#experiencia", label: "Experiencia" },
   { href: "#contacto", label: "Contacto" },
-  { href: "/cv", label: "CV" },
 ];
 
 export function Navbar() {
@@ -27,30 +26,32 @@ export function Navbar() {
     <nav
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-border bg-background/80 backdrop-blur-xl"
+          ? "border-b border-border/80 bg-background/85 backdrop-blur-xl"
           : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a
           href="#inicio"
-          className="text-lg font-bold tracking-tight transition-colors hover:text-accent-light"
+          className="text-lg font-bold tracking-tight transition-colors hover:text-teal-400"
         >
           {profile.name.split(" ")[0]}
-          <span className="text-accent">.</span>
+          <span className="gradient-text">.</span>
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                className="rounded-lg px-4 py-2 text-sm text-muted transition-colors hover:bg-card hover:text-foreground"
-              >
+              <a href={link.href} className="nav-link">
                 {link.label}
               </a>
             </li>
           ))}
+          <li>
+            <a href="#contacto" className="btn-primary ml-2 !px-5 !py-2 text-xs">
+              Contáctame
+            </a>
+          </li>
         </ul>
 
         <button
@@ -70,13 +71,22 @@ export function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="block rounded-lg px-4 py-3 text-sm text-muted transition-colors hover:bg-card hover:text-foreground"
+                  className="nav-link block !py-3"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
                 </a>
               </li>
             ))}
+            <li className="pt-2">
+              <a
+                href="#contacto"
+                className="btn-primary w-full justify-center"
+                onClick={() => setIsOpen(false)}
+              >
+                Contáctame
+              </a>
+            </li>
           </ul>
         </div>
       )}

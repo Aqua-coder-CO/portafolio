@@ -2,32 +2,26 @@
 
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { profile } from "@/data/profile";
+import { SectionHeader } from "@/components/SectionHeader";
 
 export function Contact() {
   return (
-    <section id="contacto" className="bg-card/30 px-6 py-24">
+    <section id="contacto" className="section section-alt px-6">
       <div className="mx-auto max-w-4xl">
-        <div className="mb-16 text-center">
-          <p className="mb-2 text-sm font-medium tracking-widest text-accent-light uppercase">
-            Hablemos
-          </p>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Contacto
-          </h2>
-          <p className="mx-auto mt-4 max-w-xl text-muted">
-            ¿Tienes un proyecto en mente o quieres colaborar? Escríbeme y te
-            responderé lo antes posible.
-          </p>
-        </div>
+        <SectionHeader
+          label="Hablemos"
+          title="Contacto"
+          description="¿Buscas un desarrollador junior con ganas de aprender? Escríbeme para oportunidades laborales, prácticas o proyectos pequeños."
+        />
 
         <div className="grid gap-8 md:grid-cols-2">
           <div className="space-y-4">
             <a
               href={`mailto:${profile.email}`}
-              className="flex items-center gap-4 rounded-xl border border-border bg-card p-4 transition-all hover:border-accent/30 hover:bg-card-hover"
+              className="card card-interactive flex items-center gap-4 p-4"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10">
-                <Mail size={18} className="text-accent-light" />
+              <div className="icon-box h-10 w-10 shrink-0">
+                <Mail size={18} />
               </div>
               <div>
                 <p className="text-xs text-muted">Email</p>
@@ -38,10 +32,10 @@ export function Contact() {
             {profile.phone && (
               <a
                 href={`tel:${profile.phone.replace(/\s/g, "")}`}
-                className="flex items-center gap-4 rounded-xl border border-border bg-card p-4 transition-all hover:border-accent/30 hover:bg-card-hover"
+                className="card card-interactive flex items-center gap-4 p-4"
               >
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10">
-                  <Phone size={18} className="text-accent-light" />
+                <div className="icon-box h-10 w-10 shrink-0">
+                  <Phone size={18} />
                 </div>
                 <div>
                   <p className="text-xs text-muted">Teléfono</p>
@@ -50,9 +44,9 @@ export function Contact() {
               </a>
             )}
 
-            <div className="flex items-center gap-4 rounded-xl border border-border bg-card p-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10">
-                <MapPin size={18} className="text-accent-light" />
+            <div className="card flex items-center gap-4 p-4">
+              <div className="icon-box h-10 w-10 shrink-0">
+                <MapPin size={18} />
               </div>
               <div>
                 <p className="text-xs text-muted">Ubicación</p>
@@ -62,7 +56,7 @@ export function Contact() {
           </div>
 
           <form
-            className="rounded-2xl border border-border bg-card p-6"
+            className="card p-6"
             onSubmit={(e) => e.preventDefault()}
           >
             <div className="mb-4">
@@ -73,7 +67,7 @@ export function Contact() {
                 id="name"
                 type="text"
                 placeholder="Tu nombre"
-                className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-accent"
+                className="input-field"
               />
             </div>
             <div className="mb-4">
@@ -84,7 +78,7 @@ export function Contact() {
                 id="email"
                 type="email"
                 placeholder="tu@email.com"
-                className="w-full rounded-lg border border-border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-accent"
+                className="input-field"
               />
             </div>
             <div className="mb-6">
@@ -98,22 +92,16 @@ export function Contact() {
                 id="message"
                 rows={4}
                 placeholder="Cuéntame sobre tu proyecto..."
-                className="w-full resize-none rounded-lg border border-border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-accent"
+                className="input-field resize-none"
               />
             </div>
-            <button
-              type="submit"
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-white transition-all hover:bg-accent-light"
-            >
+            <button type="submit" className="btn-primary w-full justify-center">
               <Send size={16} />
               Enviar mensaje
             </button>
             <p className="mt-3 text-center text-xs text-muted">
               O escríbeme directamente a{" "}
-              <a
-                href={`mailto:${profile.email}`}
-                className="text-accent-light hover:underline"
-              >
+              <a href={`mailto:${profile.email}`} className="link-accent">
                 {profile.email}
               </a>
             </p>

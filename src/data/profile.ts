@@ -19,18 +19,11 @@ export type Experience = {
   highlights: string[];
 };
 
-export type Education = {
-  id: string;
-  degree: string;
-  institution: string;
-  period: string;
-  description?: string;
-};
-
 export type Profile = {
   name: string;
   title: string;
   tagline: string;
+  availability?: string;
   email: string;
   phone?: string;
   location: string;
@@ -39,7 +32,6 @@ export type Profile = {
   avatar?: string;
   social: {
     github?: string;
-    linkedin?: string;
     twitter?: string;
     portfolio?: string;
   };
@@ -49,39 +41,42 @@ export type Profile = {
   }[];
   projects: Project[];
   experience: Experience[];
-  education: Education[];
-  cvUrl?: string;
 };
 
 export const profile: Profile = {
-  name: "César",
-  title: "Desarrollador web",
-  tagline: "Creo experiencias digitales que combinan diseño, código y propósito.",
+  name: "César Garcia",
+  title: "Desarrollador web junior",
+  tagline:
+    "Estoy empezando en el desarrollo web y construyo mi camino proyecto a proyecto. Busco aprender, colaborar y crecer como profesional.",
+  availability: "Abierto a oportunidades",
   email: "sismelyt083@gmail.com",
   phone: "+57 302 704 3665",
   location: "Colombia, Bogotá",
-  bio: "Apasionado por la tecnología y el diseño. Me especializo en construir aplicaciones web modernas, escalables y centradas en el usuario.",
+  bio: "Desarrollador web junior de Bogotá, apasionado por aprender y crear. Me enfoco en React, Next.js y interfaces claras mientras sigo formándome.",
   about: [
-    "Soy desarrollador con experiencia en el ecosistema JavaScript/TypeScript. Me gusta transformar ideas complejas en productos digitales claros y funcionales.",
-    "Trabajo con enfoque en calidad de código, buenas prácticas y colaboración en equipo. Siempre busco aprender nuevas tecnologías y mejorar mis habilidades.",
-    "Cuando no estoy programando, disfruto leyendo, contribuyendo a proyectos open source o explorando nuevas herramientas del sector tech.",
+    "Comencé en el desarrollo web hace poco, pero con dedicación constante. Aprendo con proyectos reales, práctica diaria y recursos en línea.",
+    "Colaboré en Bonhome, una plataforma CRM inmobiliario, donde pude aplicar React, Next.js y TypeScript en un entorno de producto real.",
+    "Busco oportunidades para seguir creciendo: primer empleo, prácticas, proyectos pequeños o colaboraciones donde pueda aportar ganas de aprender.",
   ],
   social: {
     github: "https://github.com/Aqua-coder-CO",
-    linkedin: "https://linkedin.com/in/tu-usuario",
   },
   skills: [
     {
-      category: "Frontend",
-      items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML/CSS"],
-    },
-    {
-      category: "Backend",
-      items: ["Node.js", "API REST", "PostgreSQL", "MongoDB"],
+      category: "Tecnologías que uso",
+      items: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "Next.js",
+        "Tailwind CSS",
+      ],
     },
     {
       category: "Herramientas",
-      items: ["Git", "Vercel", "Figma", "VS Code", "Cursor"],
+      items: ["Git", "GitHub", "Cursor", "Figma", "Vercel"],
     },
   ],
   projects: [
@@ -89,57 +84,38 @@ export const profile: Profile = {
       id: "1",
       title: "Bonhome",
       description:
-        "Plataforma de Crm Inmobiliario",
+        "Plataforma CRM inmobiliario con IA y WhatsApp, donde colaboré en frontend y backend.",
       longDescription:
-        "Desarrollé una tienda online completa con autenticación, gestión de productos, carrito de compras e integración de pagos. El panel admin permite control total del inventario y pedidos.",
-      tags: ["Next.js", "TypeScript", "Stripe"],
+        "Participé en Bonhome, un SaaS inmobiliario desplegado en Vercel. Trabajé con Next.js, React y TypeScript en la interfaz, InstantDB como base de datos en tiempo real y Stripe para suscripciones y pagos.",
+      tags: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "InstantDB",
+        "Stripe",
+        "Vercel",
+      ],
       image: "/projects/bonhome.png",
       liveUrl: "https://bonhome.co",
       githubUrl: "https://github.com/thadallender/bonhome",
-      featured: true,
-    },
-    {
-      id: "2",
-      title: "Proximamente",
-      description:
-        "...",
-      tags: ["..."],
-      githubUrl: "https://github.com/tu-usuario/tareas",
       featured: true,
     },
   ],
   experience: [
     {
       id: "1",
-      role: "Desarrollador Web",
-      company: "Empresa Tech",
+      role: "Desarrollador web junior",
+      company: "Bonhome",
       period: "2025 — 2026",
-      description: "Desarrollo de aplicaciones web",
+      description:
+        "CRM inmobiliario con IA y WhatsApp, desplegado en Vercel.",
       highlights: [
-        "Lider de procucto de bonhome.co",
-        "Implementé CI/CD con GitHub Actions",
-        "Colaboré con diseño UX para mejorar la experiencia de usuario",
+        "Frontend con Next.js, React, TypeScript y Tailwind CSS",
+        "Datos en tiempo real con InstantDB y pagos con Stripe",
+        "Integraciones de WhatsApp, IA y Google Maps",
+        "Trabajo en producto real desplegado en Vercel",
       ],
-    },
-    {
-      id: "2",
-      role: "Desarrollador Junior",
-      company: "Startup Innovadora",
-      period: "2025 — 2026",
-      description: "Desarrollo frontend y soporte backend.",
-      highlights: [
-        "Construí componentes reutilizables en React",
-        "Participé en code reviews y pair programming",
-      ],
-    },
-  ],
-  education: [
-    {
-      id: "3",
-      degree: "Grado en Ingeniería Informática",
-      institution: "Universidad de Ejemplo",
-      period: "2025 — 2026",
-      description: "Especialización en desarrollo de software y bases de datos.",
     },
   ],
 };
