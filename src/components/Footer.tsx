@@ -1,38 +1,43 @@
-import { Github, Heart, Linkedin } from "lucide-react";
+import { Github, Mail } from "lucide-react";
 import { profile } from "@/data/profile";
-
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 export function Footer() {
-  const year = new Date().getFullYear();
-
   return (
-    <footer className="border-t border-border px-6 py-10">
+    <footer className="border-t border-border/80 px-6 py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 sm:flex-row">
-        <p className="flex items-center gap-1 text-sm text-muted">
-          © {year} {profile.name} / Desarrolador Web Junior
-          <Heart size={14} className="text-pink-500" fill="currentColor" />
+        <p className="text-sm text-muted">
+          © 2026 | {profile.name} Personal Website | All rights Reserved
         </p>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           {profile.social.github && (
             <a
               href={profile.social.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted transition-colors hover:text-accent-light"
+              className="icon-box h-9 w-9 text-muted transition-colors hover:text-teal-400"
               aria-label="GitHub"
             >
               <Github size={18} />
             </a>
           )}
-          {profile.social.linkedin && (
+          <a
+            href={`mailto:${profile.email}`}
+            className="icon-box h-9 w-9 text-muted transition-colors hover:text-teal-400"
+            aria-label="Email"
+          >
+            <Mail size={18} />
+          </a>
+          {profile.phone && (
             <a
-              href={profile.social.linkedin}
+              href={getWhatsAppUrl(profile.phone)}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted transition-colors hover:text-accent-light"
-              aria-label="LinkedIn"
+              className="icon-box h-9 w-9 text-muted transition-colors hover:text-green-400"
+              aria-label="WhatsApp"
             >
-              <Linkedin size={18} />
+              <WhatsAppIcon size={18} />
             </a>
           )}
         </div>

@@ -1,44 +1,40 @@
 import { ExternalLink, Folder, Github } from "lucide-react";
 import { profile } from "@/data/profile";
+import { SectionHeader } from "@/components/SectionHeader";
 
 export function Projects() {
   const featuredProjects = profile.projects.filter((p) => p.featured);
   const otherProjects = profile.projects.filter((p) => !p.featured);
 
   return (
-    <section id="proyectos" className="bg-card/30 px-6 py-24">
+    <section id="proyectos" className="section section-alt px-6">
       <div className="mx-auto max-w-6xl">
-        <div className="mb-16 text-center">
-          <p className="mb-2 text-sm font-medium tracking-widest text-accent-light uppercase">
-            Mi trabajo
-          </p>
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Proyectos
-          </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-muted">
-            Una selección de proyectos que demuestran mis habilidades técnicas y
-            mi capacidad para resolver problemas reales.
-          </p>
-        </div>
+        <SectionHeader
+          label="Mi trabajo"
+          title="Proyectos"
+          description="Proyectos en los que he participado mientras aprendo y construyo experiencia en desarrollo web."
+        />
 
         <div className="mb-12 grid gap-6 md:grid-cols-2">
           {featuredProjects.map((project) => (
             <article
               key={project.id}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-accent/30 hover:bg-card-hover"
+              className="card card-interactive group overflow-hidden"
             >
               {project.image ? (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="h-48 w-full object-cover transition-transform group-hover:scale-105"
-                />
+                <div className="flex h-52 items-center justify-center bg-white p-8">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
               ) : (
-                <div className="flex h-48 items-center justify-center bg-gradient-to-br from-accent/10 to-purple-500/10">
+                <div className="flex h-52 items-center justify-center bg-gradient-to-br from-teal-500/10 to-blue-500/10">
                   <Folder
                     size={48}
-                    className="text-accent-light/50 transition-transform group-hover:scale-110"
+                    className="text-teal-400/40 transition-transform group-hover:scale-110"
                   />
                 </div>
               )}
@@ -52,7 +48,7 @@ export function Projects() {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-muted transition-colors hover:text-accent-light"
+                        className="rounded-lg p-1.5 text-muted transition-colors hover:bg-teal-500/10 hover:text-teal-400"
                         aria-label={`GitHub de ${project.title}`}
                       >
                         <Github size={18} />
@@ -63,7 +59,7 @@ export function Projects() {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-muted transition-colors hover:text-accent-light"
+                        className="rounded-lg p-1.5 text-muted transition-colors hover:bg-teal-500/10 hover:text-teal-400"
                         aria-label={`Demo de ${project.title}`}
                       >
                         <ExternalLink size={18} />
@@ -78,10 +74,7 @@ export function Projects() {
 
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-md bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent-light"
-                    >
+                    <span key={tag} className="tag-accent">
                       {tag}
                     </span>
                   ))}
@@ -100,7 +93,7 @@ export function Projects() {
               {otherProjects.map((project) => (
                 <article
                   key={project.id}
-                  className="rounded-xl border border-border bg-card p-5 transition-all hover:border-accent/30 hover:bg-card-hover"
+                  className="card card-interactive p-5"
                 >
                   <div className="mb-3 flex items-center justify-between">
                     <h4 className="font-semibold">{project.title}</h4>
@@ -110,7 +103,7 @@ export function Projects() {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-muted hover:text-accent-light"
+                          className="text-muted hover:text-teal-400"
                         >
                           <Github size={16} />
                         </a>
@@ -120,7 +113,7 @@ export function Projects() {
                           href={project.liveUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-muted hover:text-accent-light"
+                          className="text-muted hover:text-teal-400"
                         >
                           <ExternalLink size={16} />
                         </a>
@@ -130,10 +123,7 @@ export function Projects() {
                   <p className="mb-3 text-sm text-muted">{project.description}</p>
                   <div className="flex flex-wrap gap-1.5">
                     {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded bg-background px-2 py-0.5 text-xs text-muted"
-                      >
+                      <span key={tag} className="tag">
                         {tag}
                       </span>
                     ))}
