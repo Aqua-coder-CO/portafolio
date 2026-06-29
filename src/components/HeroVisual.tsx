@@ -11,17 +11,17 @@ export function HeroVisual() {
   return (
     <div className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
       <div
-        className="pointer-events-none absolute -inset-6 rounded-3xl bg-gradient-to-br from-teal-500/15 via-transparent to-blue-500/10 blur-2xl"
+        className="pointer-events-none absolute -inset-6 rounded-3xl bg-gradient-to-br from-teal-500/10 via-transparent to-blue-500/8 blur-2xl"
         aria-hidden
       />
 
-      <div className="absolute -top-3 right-4 z-10 rounded-full border border-teal-500/30 bg-card px-3 py-1 text-xs font-medium text-teal-400 shadow-lg">
+      <div className="absolute -top-3 right-4 z-10 rounded-full border border-teal-500/25 bg-card px-3 py-1 text-xs font-medium text-accent shadow-sm">
         En producción
       </div>
 
-      <article className="card relative overflow-hidden border-teal-500/20 shadow-2xl shadow-black/20">
-        <div className="border-b border-border bg-gradient-to-r from-teal-500/10 via-card to-blue-500/10 px-6 py-5">
-          <p className="text-xs font-semibold tracking-wider text-teal-400 uppercase">
+      <article className="card relative overflow-hidden border-teal-500/15">
+        <div className="border-b border-border bg-gradient-to-r from-teal-500/8 via-card to-blue-500/8 px-6 py-5">
+          <p className="text-xs font-semibold tracking-wider text-accent uppercase">
             Proyecto destacado
           </p>
           <h3 className="mt-1 text-2xl font-bold">{project.title}</h3>
@@ -54,13 +54,13 @@ export function HeroVisual() {
           </div>
 
           <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-lg border border-border/60 bg-background/50 px-4 py-3">
+            <div className="rounded-lg border border-border bg-background px-4 py-3">
               <p className="text-[10px] font-semibold tracking-wider text-muted uppercase">
                 Rol
               </p>
               <p className="mt-1 text-sm font-medium">Desarrollo web</p>
             </div>
-            <div className="rounded-lg border border-border/60 bg-background/50 px-4 py-3">
+            <div className="rounded-lg border border-border bg-background px-4 py-3">
               <p className="text-[10px] font-semibold tracking-wider text-muted uppercase">
                 Tipo
               </p>

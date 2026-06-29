@@ -3,10 +3,12 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { profile } from "@/data/profile";
+import { Logo } from "@/components/Logo";
 
 const navLinks = [
   { href: "#inicio", label: "Inicio" },
   { href: "#sobre-mi", label: "Sobre mí" },
+  { href: "#stack", label: "Stack" },
   { href: "#proyectos", label: "Proyectos" },
   { href: "#experiencia", label: "Experiencia" },
   { href: "#contacto", label: "Contacto" },
@@ -26,20 +28,22 @@ export function Navbar() {
     <nav
       className={`fixed top-0 right-0 left-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "border-b border-border/80 bg-background/85 backdrop-blur-xl"
-          : "bg-transparent"
+          ? "border-b border-border bg-background/70 shadow-sm backdrop-blur-xl"
+          : "border-b border-transparent bg-background/50 backdrop-blur-md"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
         <a
           href="#inicio"
-          className="text-lg font-bold tracking-tight transition-colors hover:text-teal-400"
+          className="flex items-center gap-3 transition-opacity hover:opacity-80"
         >
-          {profile.name.split(" ")[0]}
-          <span className="gradient-text">.</span>
+          <Logo size={36} />
+          <span className="hidden text-sm font-semibold tracking-tight sm:inline">
+            {profile.name}
+          </span>
         </a>
 
-        <ul className="hidden items-center gap-1 md:flex">
+        <ul className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a href={link.href} className="nav-link">
@@ -56,7 +60,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="rounded-lg p-2 text-muted transition-colors hover:bg-card hover:text-foreground md:hidden"
+          className="rounded-md p-2 text-muted transition-colors hover:bg-surface hover:text-foreground lg:hidden"
           onClick={() => setIsOpen(!isOpen)}
           aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
         >
@@ -65,7 +69,7 @@ export function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="border-b border-border bg-background/95 backdrop-blur-xl md:hidden">
+        <div className="border-t border-border bg-background/80 backdrop-blur-xl lg:hidden">
           <ul className="flex flex-col gap-1 px-6 py-4">
             {navLinks.map((link) => (
               <li key={link.href}>

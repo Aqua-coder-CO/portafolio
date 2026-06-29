@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 import { Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
 import { profile } from "@/data/profile";
 import { SectionHeader } from "@/components/SectionHeader";
+import { RevealOnScroll } from "@/components/RevealOnScroll";
 
 export function Contact() {
   const [name, setName] = useState("");
@@ -78,6 +79,7 @@ export function Contact() {
         />
 
         <div className="grid gap-8 md:grid-cols-2">
+          <RevealOnScroll>
           <div className="space-y-4">
             <a
               href={`mailto:${profile.email}`}
@@ -117,7 +119,9 @@ export function Contact() {
               </div>
             </div>
           </div>
+          </RevealOnScroll>
 
+          <RevealOnScroll delayMs={150}>
           <form className="card p-6" onSubmit={handleSubmit} noValidate>
             <div className="mb-4">
               <label htmlFor="name" className="mb-2 block text-sm text-muted">
@@ -180,7 +184,7 @@ export function Contact() {
             )}
 
             {sent && (
-              <p className="mb-4 text-sm text-teal-400" role="status">
+              <p className="mb-4 text-sm text-accent-light" role="status">
                 ¡Mensaje enviado! Lo recibiré en mi correo y te responderé pronto.
               </p>
             )}
@@ -209,6 +213,7 @@ export function Contact() {
               </a>
             </p>
           </form>
+          </RevealOnScroll>
         </div>
       </div>
     </section>
