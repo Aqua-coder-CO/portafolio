@@ -19,6 +19,17 @@ export type Experience = {
   highlights: string[];
 };
 
+export type ValuePillar = {
+  title: string;
+  description: string;
+};
+
+export type SkillGroup = {
+  category: string;
+  description: string;
+  items: string[];
+};
+
 export type Profile = {
   name: string;
   title: string;
@@ -35,10 +46,8 @@ export type Profile = {
     twitter?: string;
     portfolio?: string;
   };
-  skills: {
-    category: string;
-    items: string[];
-  }[];
+  valuePillars: ValuePillar[];
+  skills: SkillGroup[];
   projects: Project[];
   experience: Experience[];
 };
@@ -61,9 +70,28 @@ export const profile: Profile = {
   social: {
     github: "https://github.com/Aqua-coder-CO",
   },
+  valuePillars: [
+    {
+      title: "Desarrollo Frontend",
+      description:
+        "Construyo interfaces con React, Next.js y TypeScript, priorizando claridad, accesibilidad y buenas prácticas de UI.",
+    },
+    {
+      title: "Producto en producción",
+      description:
+        "Experiencia colaborando en Bonhome, un SaaS inmobiliario desplegado en Vercel con usuarios reales y funcionalidades completas.",
+    },
+    {
+      title: "Aprendizaje continuo",
+      description:
+        "Me mantengo en formación activa, trabajo en equipo y busco feedback constante para mejorar como desarrollador.",
+    },
+  ],
   skills: [
     {
-      category: "Tecnologías que uso",
+      category: "Frontend",
+      description:
+        "Desarrollo de interfaces web responsivas con componentes reutilizables, estilos modernos y experiencia de usuario clara.",
       items: [
         "HTML",
         "CSS",
@@ -76,7 +104,21 @@ export const profile: Profile = {
     },
     {
       category: "Herramientas",
+      description:
+        "Control de versiones, diseño colaborativo y despliegue continuo para entregar productos de forma ágil y organizada.",
       items: ["Git", "GitHub", "Cursor", "Figma", "Vercel"],
+    },
+    {
+      category: "Backend y datos",
+      description:
+        "Integración de APIs, bases de datos en tiempo real y servicios de terceros en aplicaciones web full-stack.",
+      items: ["InstantDB", "Stripe", "REST APIs", "Node.js"],
+    },
+    {
+      category: "Despliegue",
+      description:
+        "Publicación y mantenimiento de aplicaciones en entornos de producción con buenas prácticas de hosting y CI/CD básico.",
+      items: ["Vercel", "Variables de entorno", "Dominios", "Optimización"],
     },
   ],
   projects: [
