@@ -40,10 +40,20 @@ export function Contact() {
         }),
       });
 
-      const data = (await response.json()) as { error?: string };
+      const text = await response.text();
+      let data: { error?: string } = {};
+
+      if (text) {
+        try {
+          data = JSON.parse(text) as { error?: string };
+        } catch {
+          setError("No se pudo enviar el mensaje. Inténtalo de nuevo.");
+          return;
+        }
+      }
 
       if (!response.ok) {
-        setError(data.error ?? "No se pudo enviar el mensaje.");
+        setError(data.error ?? "No se pudo enviar el mensaje. Inténtalo de nuevo.");
         return;
       }
 
