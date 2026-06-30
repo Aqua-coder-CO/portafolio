@@ -1,18 +1,64 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
+import { ChangeEvent, FormEvent, useRef, useState } from "react";
+import { Loader2, Mail, MapPin, Paperclip, Phone, Send, X } from "lucide-react";
 import { profile } from "@/data/profile";
 import { SectionHeader } from "@/components/SectionHeader";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
+import {
+  MAX_ATTACHMENTS,
+  formatMaxAttachmentSizeMb,
+  validateAttachmentFile,
+} from "@/lib/contact-attachments";
+
+function formatFileSize(bytes: number): string {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
 
 export function Contact() {
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [attachments, setAttachments] = useState<File[]>([]);
   const [error, setError] = useState("");
   const [sent, setSent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  function handleAttachmentChange(e: ChangeEvent<HTMLInputElement>) {
+    const selected = Array.from(e.target.files ?? []);
+    e.target.value = "";
+
+    if (selected.length === 0) return;
+
+    setError("");
+    setSent(false);
+
+    const next = [...attachments];
+
+    for (const file of selected) {
+      if (next.length >= MAX_ATTACHMENTS) {
+        setError(`Máximo ${MAX_ATTACHMENTS} archivos adjuntos.`);
+        break;
+      }
+
+      const validationError = validateAttachmentFile(file);
+      if (validationError) {
+        setError(validationError);
+        continue;
+      }
+
+      next.push(file);
+    }
+
+    setAttachments(next);
+  }
+
+  function removeAttachment(index: number) {
+    setAttachments((current) => current.filter((_, i) => i !== index));
+  }
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -31,14 +77,15 @@ export function Contact() {
     setIsSubmitting(true);
 
     try {
+      const formData = new FormData();
+      formData.append("name", trimmedName);
+      formData.append("email", trimmedEmail);
+      formData.append("message", trimmedMessage);
+      attachments.forEach((file) => formData.append("attachments", file));
+
       const response = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: trimmedName,
-          email: trimmedEmail,
-          message: trimmedMessage,
-        }),
+        body: formData,
       });
 
       const text = await response.text();
@@ -62,6 +109,10 @@ export function Contact() {
       setName("");
       setEmail("");
       setMessage("");
+      setAttachments([]);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
     } catch {
       setError("Error de conexión. Comprueba tu internet e inténtalo de nuevo.");
     } finally {
@@ -157,7 +208,7 @@ export function Contact() {
                 disabled={isSubmitting}
               />
             </div>
-            <div className="mb-6">
+            <div className="mb-4">
               <label
                 htmlFor="message"
                 className="mb-2 block text-sm text-muted"
@@ -175,6 +226,64 @@ export function Contact() {
                 required
                 disabled={isSubmitting}
               />
+            </div>
+
+            <div className="mb-6">
+              <label htmlFor="attachments" className="mb-2 block text-sm text-muted">
+                Archivos adjuntos{" "}
+                <span className="text-xs">(opcional)</span>
+              </label>
+              <input
+                ref={fileInputRef}
+                id="attachments"
+                name="attachments"
+                type="file"
+                accept="application/pdf,image/jpeg,image/png,image/webp,image/gif"
+                multiple
+                className="sr-only"
+                onChange={handleAttachmentChange}
+                disabled={isSubmitting || attachments.length >= MAX_ATTACHMENTS}
+              />
+              <button
+                type="button"
+                onClick={() => fileInputRef.current?.click()}
+                className="flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-border bg-background/40 px-4 py-3 text-sm text-muted transition-colors hover:border-accent/40 hover:text-foreground disabled:cursor-not-allowed disabled:opacity-60"
+                disabled={isSubmitting || attachments.length >= MAX_ATTACHMENTS}
+              >
+                <Paperclip size={16} />
+                {attachments.length >= MAX_ATTACHMENTS
+                  ? `Máximo ${MAX_ATTACHMENTS} archivos`
+                  : "Adjuntar PDF o imagen"}
+              </button>
+              <p className="mt-2 text-xs text-muted">
+                Hasta {MAX_ATTACHMENTS} archivos, máximo {formatMaxAttachmentSizeMb()} MB
+                cada uno.
+              </p>
+
+              {attachments.length > 0 && (
+                <ul className="mt-3 space-y-2">
+                  {attachments.map((file, index) => (
+                    <li
+                      key={`${file.name}-${file.size}-${index}`}
+                      className="flex items-center justify-between gap-3 rounded-lg border border-border bg-background/40 px-3 py-2"
+                    >
+                      <div className="min-w-0">
+                        <p className="truncate text-sm text-foreground">{file.name}</p>
+                        <p className="text-xs text-muted">{formatFileSize(file.size)}</p>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => removeAttachment(index)}
+                        className="shrink-0 rounded-md p-1 text-muted transition-colors hover:bg-surface hover:text-foreground"
+                        aria-label={`Quitar ${file.name}`}
+                        disabled={isSubmitting}
+                      >
+                        <X size={14} />
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
 
             {error && (

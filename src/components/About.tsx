@@ -3,6 +3,8 @@ import { profile } from "@/data/profile";
 import { SectionHeader } from "@/components/SectionHeader";
 import { Logo } from "@/components/Logo";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
+import { WhatsAppIcon } from "@/components/WhatsAppIcon";
+import { getWhatsAppUrl } from "@/lib/whatsapp";
 
 export function About() {
   return (
@@ -60,6 +62,17 @@ export function About() {
                         aria-label="GitHub"
                       >
                         <Github size={16} />
+                      </a>
+                    )}
+                    {profile.phone && (
+                      <a
+                        href={getWhatsAppUrl(profile.phone)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="icon-box h-9 w-9 text-muted transition-colors duration-300 hover:text-green-400"
+                        aria-label="WhatsApp"
+                      >
+                        <WhatsAppIcon size={16} />
                       </a>
                     )}
                   </div>
