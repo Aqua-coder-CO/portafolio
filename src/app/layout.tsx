@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { profile } from "@/data/profile";
+import { LOGO_PATH } from "@/lib/brand";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 
 const geistSans = Geist({
@@ -15,17 +16,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${profile.name} | Portfolio`,
+  title: `${profile.name} | Portafolio`,
   description: profile.tagline,
   keywords: [
     profile.title,
-    "portfolio",
+    "portafolio",
     "desarrollador",
     ...profile.skills.flatMap((s) => s.items),
   ],
   authors: [{ name: profile.name }],
+  icons: {
+    icon: LOGO_PATH,
+    apple: LOGO_PATH,
+  },
   openGraph: {
-    title: `${profile.name} | Portfolio`,
+    title: `${profile.name} | Portafolio`,
     description: profile.tagline,
     type: "website",
   },
