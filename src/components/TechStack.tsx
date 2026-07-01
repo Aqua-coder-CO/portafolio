@@ -10,9 +10,9 @@ export function TechStack() {
     <section id="stack" className="section section-alt px-6">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
-          label="Tecnologías"
-          title="Stack tecnológico"
-          description="Áreas en las que trabajo y las herramientas que utilizo para construir productos web."
+          label="Capacidades"
+          title="Tecnología al servicio del negocio"
+          description="Herramientas y enfoques que uso para acelerar entregas, reducir costos operativos y modernizar procesos digitales."
         />
 
         <div className="grid gap-6 sm:grid-cols-2">

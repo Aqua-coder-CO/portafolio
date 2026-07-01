@@ -1,8 +1,8 @@
-import { BookOpen, Layout, Rocket, type LucideIcon } from "lucide-react";
+import { Layout, MessageSquare, Rocket, type LucideIcon } from "lucide-react";
 import { profile } from "@/data/profile";
 import { RevealOnScroll } from "@/components/RevealOnScroll";
 
-const pillarIcons: LucideIcon[] = [Layout, Rocket, BookOpen];
+const pillarIcons: LucideIcon[] = [Rocket, Layout, MessageSquare];
 
 export function ValuePillars() {
   return (

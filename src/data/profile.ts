@@ -54,70 +54,71 @@ export type Profile = {
 
 export const profile: Profile = {
   name: "César Garcia",
-  title: "Desarrollador web junior",
+  title: "Desarrollador Full-Stack & Optimización Tecnológica",
   tagline:
-    "Estoy empezando en el desarrollo web y construyo mi camino proyecto a proyecto. Busco aprender, colaborar y crecer como profesional.",
-  availability: "Abierto a oportunidades",
+    "Ayudo a empresas y startups a acelerar su transformación digital mediante desarrollo ágil de software, optimización de procesos e integración de Inteligencia Artificial. Con experiencia directa en productos SaaS en producción, transformo el feedback de los usuarios en código eficiente, escalable y libre de errores.",
+  availability: "Disponible para proyectos y equipos",
   email: "sismelyt083@gmail.com",
   phone: "+57 302 704 3665",
   location: "Colombia, Bogotá",
-  bio: "Desarrollador web junior de Bogotá, apasionado por aprender y crear. Me enfoco en React, Next.js y interfaces claras mientras sigo formándome.",
+  bio: "Desarrollador full-stack enfocado en modernización tecnológica, integración de IA y entrega rápida de productos digitales con impacto operativo real.",
   about: [
-    "Comencé en el desarrollo web hace poco, pero con dedicación constante. Aprendo con proyectos reales, práctica diaria y recursos en línea.",
-    "Colaboré en Bonhome, una plataforma CRM inmobiliario, donde pude aplicar React, Next.js y TypeScript en un entorno de producto real.",
-    "Busco oportunidades para seguir creciendo: primer empleo, prácticas, proyectos pequeños o colaboraciones donde pueda aportar ganas de aprender.",
+    "Mi enfoque está en el desarrollo de software moderno y de alto impacto para el negocio. Utilizo metodologías ágiles y entornos de desarrollo asistidos por IA (como Cursor) para reducir drásticamente los tiempos de entrega, diagnosticar fallas complejas y refactorizar sistemas de manera proactiva.",
+    "Como pieza clave en el desarrollo de Bonhome —un SaaS CRM inmobiliario en producción— traduje las necesidades y entrevistas de usuarios reales en optimizaciones técnicas directas. Implementé integraciones críticas de IA, automatización de comunicaciones y pasarelas de pago (Stripe), asegurando la estabilidad y escalabilidad del producto.",
+    "Busco integrarme a equipos u organizaciones que deseen modernizar sus flujos de trabajo, eliminar deuda técnica y desplegar soluciones tecnológicas de última generación con rapidez y precisión.",
   ],
   social: {
     github: "https://github.com/Aqua-coder-CO",
   },
   valuePillars: [
     {
-      title: "Desarrollo Frontend",
+      title: "Entrega acelerada con IA",
       description:
-        "Construyo interfaces con React, Next.js y TypeScript, priorizando claridad, accesibilidad y buenas prácticas de UI.",
+        "Desarrollo asistido por Cursor y herramientas de IA para reducir tiempos de entrega, detectar bugs antes de producción y mantener código limpio y mantenible.",
     },
     {
       title: "Producto en producción",
       description:
-        "Experiencia colaborando en Bonhome, un SaaS inmobiliario desplegado en Vercel con usuarios reales y funcionalidades completas.",
+        "Experiencia directa en Bonhome, un SaaS inmobiliario desplegado con usuarios reales, pagos, automatizaciones y operación continua en Vercel.",
     },
     {
-      title: "Aprendizaje continuo",
+      title: "Optimización basada en el cliente",
       description:
-        "Me mantengo en formación activa, trabajo en equipo y busco feedback constante para mejorar como desarrollador.",
+        "Ciclos de entrevistas y feedback con usuarios finales para eliminar fricciones operativas, corregir fallas críticas y diseñar interfaces que no requieren capacitación técnica compleja.",
     },
   ],
   skills: [
     {
-      category: "Frontend",
+      category: "Desarrollo inteligente y eficiencia con IA",
       description:
-        "Desarrollo de interfaces web responsivas con componentes reutilizables, estilos modernos y experiencia de usuario clara.",
+        "Uso avanzado de Cursor y asistentes de IA en la arquitectura de código para acelerar el desarrollo de software limpio, la detección proactiva de bugs y la optimización de código legacy.",
+      items: ["Cursor", "Git", "GitHub", "Figma"],
+    },
+    {
+      category: "Arquitectura y despliegue ágil",
+      description:
+        "Migración de interfaces y sistemas hacia arquitecturas modernas y serverless que disminuyen los costos de infraestructura tradicional, optimizan el rendimiento y escalan sin fricciones.",
       items: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Vercel",
         "HTML",
         "CSS",
         "JavaScript",
-        "TypeScript",
-        "React",
-        "Next.js",
-        "Tailwind CSS",
       ],
     },
     {
-      category: "Herramientas",
+      category: "Optimización basada en el cliente",
       description:
-        "Control de versiones, diseño colaborativo y despliegue continuo para entregar productos de forma ágil y organizada.",
-      items: ["Git", "GitHub", "Cursor", "Figma", "Vercel"],
-    },
-    {
-      category: "Backend y datos",
-      description:
-        "Integración de APIs, bases de datos en tiempo real y servicios de terceros en aplicaciones web full-stack.",
+        "Diseño e integración de bases de datos en tiempo real y pasarelas de pago, refinados mediante ciclos de feedback directo con el usuario final para garantizar una adopción intuitiva.",
       items: ["InstantDB", "Stripe", "REST APIs", "Node.js"],
     },
     {
-      category: "Despliegue",
+      category: "Operación y estabilidad en producción",
       description:
-        "Publicación y mantenimiento de aplicaciones en entornos de producción con buenas prácticas de hosting y CI/CD básico.",
+        "Despliegue, configuración y mantenimiento de aplicaciones en entornos productivos con buenas prácticas de hosting, variables de entorno y optimización de rendimiento.",
       items: ["Vercel", "Variables de entorno", "Dominios", "Optimización"],
     },
   ],
@@ -126,9 +127,9 @@ export const profile: Profile = {
       id: "1",
       title: "Bonhome",
       description:
-        "Plataforma CRM inmobiliario con IA y WhatsApp, donde colaboré en frontend y backend.",
+        "Co-desarrollé un ecosistema SaaS inmobiliario en producción, enfocado en automatizar los flujos de trabajo de los asesores con IA y WhatsApp.",
       longDescription:
-        "Participé en Bonhome, un SaaS inmobiliario desplegado en Vercel. Trabajé con Next.js, React y TypeScript en la interfaz, InstantDB como base de datos en tiempo real y Stripe para suscripciones y pagos.",
+        "Co-desarrollé un ecosistema SaaS inmobiliario en producción, enfocándome en automatizar los flujos de trabajo de los asesores. Integré APIs de Inteligencia Artificial y automatizaciones de WhatsApp para reducir los tiempos de respuesta de cara al cliente. Ejecuté un ciclo continuo de entrevistas con usuarios finales para identificar fricciones operativas, lo que resultó en la eliminación sistemática de bugs críticos y el diseño de una interfaz intuitiva que no requiere entrenamiento técnico complejo.",
       tags: [
         "Next.js",
         "React",
@@ -137,6 +138,8 @@ export const profile: Profile = {
         "InstantDB",
         "Stripe",
         "Vercel",
+        "IA",
+        "WhatsApp",
       ],
       image: "/projects/bonhome.png",
       liveUrl: "https://bonhome.co",
@@ -147,16 +150,17 @@ export const profile: Profile = {
   experience: [
     {
       id: "1",
-      role: "Desarrollador web junior",
+      role: "Desarrollador Full-Stack",
       company: "Bonhome",
       period: "2025 — 2026",
       description:
-        "CRM inmobiliario con IA y WhatsApp, desplegado en Vercel.",
+        "Co-desarrollo de un CRM inmobiliario SaaS en producción, con integraciones de IA, WhatsApp, pagos y datos en tiempo real.",
       highlights: [
-        "Frontend con Next.js, React, TypeScript y Tailwind CSS",
-        "Datos en tiempo real con InstantDB y pagos con Stripe",
-        "Integraciones de WhatsApp, IA y Google Maps",
-        "Trabajo en producto real desplegado en Vercel",
+        "Automatización de comunicaciones con WhatsApp para reducir tiempos de respuesta al cliente",
+        "Integración de APIs de IA para optimizar flujos operativos de asesores inmobiliarios",
+        "Implementación de pagos con Stripe e InstantDB para operación en tiempo real",
+        "Ciclo continuo de entrevistas con usuarios para eliminar bugs críticos y mejorar la adopción",
+        "Despliegue y mantenimiento en Vercel con arquitectura Next.js y TypeScript",
       ],
     },
   ],

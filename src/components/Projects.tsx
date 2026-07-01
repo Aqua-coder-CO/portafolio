@@ -13,7 +13,7 @@ export function Projects() {
         <SectionHeader
           label="Mi trabajo"
           title="Proyectos"
-          description="Proyectos en los que he participado mientras aprendo y construyo experiencia en desarrollo web."
+          description="Casos reales donde apliqué desarrollo ágil, integración de IA y optimización basada en feedback de usuarios."
         />
 
         <div className="mb-12 grid gap-6 md:grid-cols-2">

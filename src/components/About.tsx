@@ -14,7 +14,7 @@ export function About() {
           align="center"
           label="Conóceme"
           title="Sobre mí"
-          description="Un poco de quién soy, qué hago y con qué tecnologías trabajo."
+          description="Desarrollador orientado a resultados: modernización tecnológica, productos en producción e integración de IA."
         />
 
         <div className="grid items-stretch gap-8 lg:grid-cols-2 lg:gap-10">

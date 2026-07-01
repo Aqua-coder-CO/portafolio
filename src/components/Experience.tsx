@@ -42,7 +42,7 @@ export function Experience() {
                       {exp.description}
                     </p>
                     <p className="mb-3 text-xs font-semibold tracking-wider text-accent-light uppercase">
-                      Stack y responsabilidades
+                      Impacto y responsabilidades
                     </p>
                     <ul className="grid gap-3 sm:grid-cols-2">
                       {exp.highlights.map((highlight) => (
