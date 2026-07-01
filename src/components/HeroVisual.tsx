@@ -58,7 +58,7 @@ export function HeroVisual() {
               <p className="text-[10px] font-semibold tracking-wider text-muted uppercase">
                 Rol
               </p>
-              <p className="mt-1 text-sm font-medium">Desarrollo web</p>
+              <p className="mt-1 text-sm font-medium">Co-desarrollo Full-Stack</p>
             </div>
             <div className="rounded-lg border border-border bg-background px-4 py-3">
               <p className="text-[10px] font-semibold tracking-wider text-muted uppercase">

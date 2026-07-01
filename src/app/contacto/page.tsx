@@ -7,7 +7,7 @@ import { profile } from "@/data/profile";
 export const metadata: Metadata = {
   title: `Contacto | ${profile.name}`,
   description:
-    "¿Buscas un desarrollador junior con ganas de aprender? Escríbeme para oportunidades laborales, prácticas o proyectos pequeños.",
+    "¿Buscas acelerar la modernización de tu empresa o producto digital? Escríbeme para hablar de integración tecnológica, automatización o desarrollo de software a medida.",
 };
 
 export default function ContactoPage() {
